@@ -1,51 +1,43 @@
-# CakePHP Application Skeleton
+1) webuy.zip consists of cakephp API's and client.zip consists of front end in angular
 
-[![Build Status](https://img.shields.io/travis/cakephp/app/master.svg?style=flat-square)](https://travis-ci.org/cakephp/app)
-[![Total Downloads](https://img.shields.io/packagist/dt/cakephp/app.svg?style=flat-square)](https://packagist.org/packages/cakephp/app)
+2) The project is Authentication based application comprising of Customer frontend and admin backend.
 
-A skeleton for creating applications with [CakePHP](https://cakephp.org) 3.x.
+3) The appication uses JWT authentication method to verify the user. Every hit to server has JWT token in header (except few such as Login, Logout) that we get after user/admin login 
 
-The framework source code can be found here: [cakephp/cakephp](https://github.com/cakephp/cakephp).
+3) Technologies used
+	a) Angular 6.1
+	b) Cakephp 3.6
+	c) MySQL
+	d) JWT for authentication
+	e) Angular material for designing 
 
-## Installation
+4) The base url for server API's is stored in environment.ts in client frontend(src/environment.ts) which in this case is 'http://localhost'
 
-1. Download [Composer](https://getcomposer.org/doc/00-intro.md) or update `composer self-update`.
-2. Run `php composer.phar create-project --prefer-dist cakephp/app [app_name]`.
 
-If Composer is installed globally, run
 
-```bash
-composer create-project --prefer-dist cakephp/app
-```
 
-In case you want to use a custom app dir name (e.g. `/myapp/`):
+STEPS TO START PROJECT
 
-```bash
-composer create-project --prefer-dist cakephp/app myapp
-```
+prerequisite: Node and WAMP/XAMPP needs to be installed
 
-You can now either use your machine's webserver to view the default home page, or start
-up the built-in webserver with:
+1 unzip client.zip into client folder and webuy.zip into webuy folder and place webuy folder in wamp folder
+2 go to webuy/config/app.php and chnage the db configurations(probably on line no. 260)
+2 'cd client' (coming to angular part)
+3 'ng serve' - the angular will start running and will show the port as well on which it is running
+4 go to the url. default is 'http://localhost:4200' 
 
-```bash
-bin/cake server -p 8765
-```
 
-Then visit `http://localhost:8765` to see the welcome page.
 
-## Update
+CREDENTIALS
 
-Since this skeleton is a starting point for your application and various files
-would have been modified as per your needs, there isn't a way to provide
-automated upgrades, so you have to do any updates manually.
+User Section
+url - http://localhost:4200
+email: rajneesh.m49@gmail.com
+password: 123456789
 
-## Configuration
+Admin Backend section
+url - http://localhost:4200/admin
+username: webuy@gmail.com
+password: webuy123$
 
-Read and edit `config/app.php` and setup the `'Datasources'` and any other
-configuration relevant for your application.
-
-## Layout
-
-The app skeleton uses a subset of [Foundation](http://foundation.zurb.com/) (v5) CSS
-framework by default. You can, however, replace it with any other library or
-custom styles.
+Note: customers and admin users are stored into same table users with only difference - admin users have column role='admin'
